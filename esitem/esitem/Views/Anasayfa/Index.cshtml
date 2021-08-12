@@ -1,0 +1,156 @@
+﻿@using esitem.Entity
+@model IEnumerable<Ürün>
+
+<div class="row">
+    <div id="sidebar" class="span3">
+        <div class="well well-small">
+            <ul class="nav nav-list">
+           @Html.Action("_CategoryList","Category")
+                <li style="border:0"> &nbsp;</li>
+                @Html.Action("SepetÖzet","Cart")
+            </ul>
+        </div>
+
+
+        
+        <br>
+        <br>
+   @Html.Action("_FeaturedÜrünList","Anasayfa")
+
+    </div>
+    <div class="span9">
+        <div class="well np">
+            <div id="myCarousel" class="carousel slide homCar">
+                <div class="carousel-inner">
+             
+                    <div class="item">
+                        <img style="width:100%" src="/esite/esite/assets/img/2323.jpg" alt="bootstrap ecommerce templates">
+                        <div class="carousel-caption">
+                          
+                        </div>
+                    </div>
+                    <div class="item active">
+                        <img style="width:100%" src="/esite/esite/assets/img/2424.jpg" alt="bootstrap ecommerce templates">
+                        <div class="carousel-caption">
+                           
+                        </div>
+                    </div>
+                  
+                </div>
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+            </div>
+        </div>
+
+        <div class="well well-small">
+            <h3>En Çok Tercih Edilen </h3>
+            <hr class="soften">
+            <div class="row-fluid">
+                <div id="newProductCar" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="item">
+                            <ul class="thumbnails">
+                                <li class="span3">
+                                    <div class="thumbnail">
+                                        <a class="zoomTool" href=""#"" title="add to cart" style="display: none;"><span class="icon-search"></span> Görüntüle</a>
+                                        <a href="#" class="tag"></a>
+                                        <a href=""#""><img src="/esite/esite/assets/img/24.jpg" alt="bootstrap-ring"></a>
+                                    </div>
+                                </li>
+                                <li class="span3">
+                                    <div class="thumbnail">
+                                        <a class="zoomTool" href=""#"" title="add to cart" style="display: none;"><span class="icon-search"></span> Görüntüle</a>
+                                        <a href="#" class="tag"></a>
+                                        <a href=""#""><img src="/esite/esite/assets/img/26.jpg" alt=""></a>
+                                    </div>
+                                </li>
+                                <li class="span3">
+                                    <div class="thumbnail">
+                                        <a class="zoomTool" href=""#"" title="add to cart" style="display: none;"><span class="icon-search"></span> Görüntüle</a>
+                                        <a href="#" class="tag"></a>
+                                        <a href=""#""><img src="/esite/esite/assets/img/27.jpg" alt=""></a>
+                                    </div>
+                                </li>
+                                <li class="span3">
+                                    <div class="thumbnail">
+                                        <a class="zoomTool" href=""#"" title="add to cart" style="display: none;"><span class="icon-search"></span> Görüntüle</a>
+                                        <a href=""#""><img src="/esite/esite/assets/img/25.jpg" alt=""></a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="item active">
+                            <ul class="thumbnails">
+                                <li class="span3">
+                                    <div class="thumbnail">
+                                        <a class="zoomTool" href=""#"" title="add to cart"><span class="icon-search"></span> Görüntüle</a>
+                                        <a href=""#""><img src="/esite/esite/assets/img/24.jpg" alt=""></a>
+                                    </div>
+                                </li>
+                                <li class="span3">
+                                    <div class="thumbnail">
+                                        <a class="zoomTool" href=""#"" title="add to cart"><span class="icon-search"></span> Görüntüle</a>
+                                        <a href=""#""><img src="/esite/esite/assets/img/23.jpg" alt=""></a>
+                                    </div>
+                                </li>
+                                <li class="span3">
+                                    <div class="thumbnail">
+                                        <a class="zoomTool" href=""#"" title="add to cart"><span class="icon-search"></span> Görüntüle</a>
+                                        <a href=""#""><img src="/esite/esite/assets/img/26.jpg" alt=""></a>
+                                    </div>
+                                </li>
+                                <li class="span3">
+                                    <div class="thumbnail">
+                                        <a class="zoomTool" href=""#"" title="add to cart"><span class="icon-search"></span> Görüntüle</a>
+                                        <a href=""#""><img src="/esite/esite/assets/img/26.jpg" alt=""></a>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#newProductCar" data-slide="prev">‹</a>
+                    <a class="right carousel-control" href="#newProductCar" data-slide="next">›</a>
+                </div>
+            </div>
+          
+        </div>
+        <!--
+    New Products
+    -->
+        <div class="well well-small">
+            <h3>Ürünler </h3>
+            <hr class="soften" />
+
+            <div class="row-fluid">
+                <ul class="thumbnails">
+                    @foreach (var item in Model)
+                    {
+                        <li class="span4">
+                            <div class="thumbnail">
+
+
+                                <a href="/Anasayfa/ÜrünDetay/@item.Id"><img src="~/Content/image/@item.İmage" alt=""></a>
+                                <div class="caption cntr">
+                                    <p>@item.Name</p>
+                                    <p><strong>@item.Price  ₺ </strong></p>
+                                    <h4><a class="shopBtn" href="/Anasayfa/ÜrünDetay/@item.Id" title="add to cart"> Detay </a></h4>
+
+                                    <br class="clr">
+                                </div>
+                            </div>
+                        </li>
+                    }
+
+
+                </ul>
+            </div>
+        </div>
+        <!--
+    Featured Products
+    -->
+
+
+
+    </div>
+</div>

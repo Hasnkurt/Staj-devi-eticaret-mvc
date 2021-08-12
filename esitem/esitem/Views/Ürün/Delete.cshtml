@@ -1,0 +1,105 @@
+﻿@model esitem.Entity.Ürün
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+    
+        <h3>Ürünü Silmek İstediğinizden Emin misiniz ? </h3>
+        <div>
+
+            <hr />
+            <dl class="dl-horizontal">
+
+
+                <dt>
+                    Ürün Adi
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    Açıklama
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+                <dt>
+                    Ürün Resmi
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.İmage)
+                    <img src="~/Content/image/@Model.İmage" width="50" height="40" />
+                </dd>
+
+                <dt>
+                    Fiyat
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Price)
+                </dd>
+
+                <dt>
+                    Adet
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Stock)
+                </dd>
+
+                <dt>
+                    Slayt
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Slider)
+                </dd>
+
+                <dt>
+                    Anasayfa
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.IsHome)
+                </dd>
+
+                <dt>
+                    Popüler
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.IsFeatured)
+                </dd>
+
+                <dt>
+                    Onaylı
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.IsApproved)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Sil" class="btn btn-primary" />
+                        @Html.ActionLink("Ürün Listesi", "Index", null, new { @class = "btn btn-danger" })
+                    </div>
+                </div>
+            }
+        </div>
+    </div>

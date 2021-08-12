@@ -1,0 +1,83 @@
+﻿@using esitem.Entity
+@model Ürün
+<div class="row">
+    <div id="sidebar" class="span3">
+        <div class="well well-small">
+            <ul class="nav nav-list">
+                @Html.Action("_CategoryList", "Category")
+                <li style="border:0"> &nbsp;</li>
+                @Html.Action("SepetÖzet", "Cart")
+            </ul>
+        </div>
+
+        <div class="well well-small alert alert-warning cntr">
+            <h2>50% Discount</h2>
+            <p>
+                only valid for online order. <br><br><a class="defaultBtn" href="#">Click here </a>
+            </p>
+        </div>
+        <div class="well well-small"><a href="#"><img src="/esite/esite/assets/img/paypal.jpg" alt="payment method paypal"></a></div>
+
+        <a class="shopBtn btn-block" href="#">Upcoming products <br><small>Click to view</small></a>
+        <br>
+        <br>
+        @Html.Action("_FeaturedÜrünList", "Anasayfa")
+    </div>
+    <div class="span9">
+        <ul class="breadcrumb">
+            <li><a href="/Anasayfa/Index">Anasayfa</a> <span class="divider">/</span></li>
+            <li><a href="/Anasayfa/Ürün">Ürünler</a> <span class="divider">/</span></li>
+            <li class="active">Ürün Detay</li>
+        </ul>
+        <div class="well well-small">
+            <div class="row-fluid">
+                <div class="span5">
+                    <div id="myCarousel" class="carousel slide cntr">
+                  
+                            <div class="item">
+                                <a href="#"> <img src="~/Content/image/@Model.İmage" alt="" style="width:100%"></a>
+                            </div>
+                            
+                  
+                        
+                    </div>
+                </div>
+                <div class="span7">
+                    <h3>@Model.Name</h3>
+                    <hr class="soft">
+                    @using(Html.BeginForm("AddToCart","Cart",new {  @class= "form-horizontal qtyFrm"    }))
+                    {
+            
+                        <div class="control-group">
+                            <label class="control-label"><span>@Model.Price  ₺ </span></label>
+                          
+                        </div>
+                        @Html.HiddenFor(i=>i.Id)
+                    
+                        <div class="control-group">
+                            <label class="control-label"><span>Materials</span></label>
+                            <div class="controls">
+                                <select class="span11">
+                                    <option>KG</option> 
+                                    <option>Adet</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <h4>@Model.Stock</h4>
+                        <p>
+                       @Model.Description
+                        </p><p>
+                            <button type="submit" class="shopBtn"><span class=" icon-shopping-cart"></span> Sepete Ekle</button>
+                        </p>
+                    }
+                </div>
+            </div>
+            <hr class="softn clr">
+
+
+          
+
+        </div>
+    </div>
+</div>
